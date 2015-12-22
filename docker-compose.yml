@@ -11,4 +11,31 @@ web:
     file: docker-compose.yml
     service: base
   environment:
+  links:
+    - devdb
   command: rails s -b 0.0.0.0
+
+devdb:
+  image: postgres:9.4
+  environment:
+    POSTGRES_USER: session_development
+    POSTGRES_PASSWORD: thepassword
+  ports:
+    - "5432:5432"
+
+rake:
+  extends:
+    file: docker-compose.yml
+    service: base
+  environment:
+  links:
+    - testdb
+  command: rake
+
+testdb:
+  image: postgres:9.4
+  environment:
+    POSTGRES_USER: session_test
+    POSTGRES_PASSWORD: thepassword
+  ports:
+    - "5432:5432"

@@ -1,0 +1,14 @@
+---
+base:
+  build: .
+  volumes:
+    - ".:/app"
+  ports:
+    - "80:3000"
+
+web:
+  extends:
+    file: docker-compose.yml
+    service: base
+  environment:
+  command: rails s -b 0.0.0.0

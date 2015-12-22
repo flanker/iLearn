@@ -28,6 +28,7 @@ rake:
     file: docker-compose.yml
     service: base
   environment:
+    RACK_ENV: test
   links:
     - testdb
   command: rake

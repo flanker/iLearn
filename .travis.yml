@@ -9,9 +9,12 @@ rvm:
   - 2.2
 
 before_install:
+  - docker-compose rm --force
   - docker-compose build
+  - docker version
+  - docker-compose version
   - docker ps
 env:
   - RAILS_ENV=test
 script:
-  - docker-compose up rake
+  - docker-compose run rake

@@ -21,7 +21,7 @@ devdb:
     POSTGRES_USER: session_development
     POSTGRES_PASSWORD: thepassword
   ports:
-    - "54321:5432"
+    - "5433:5432"
 
 rake:
   extends:
@@ -39,4 +39,4 @@ testdb:
     POSTGRES_USER: session_test
     POSTGRES_PASSWORD: thepassword
   ports:
-    - "54321:5432"
+    - "5433:5432"

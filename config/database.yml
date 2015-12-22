@@ -9,6 +9,7 @@ development:
   database: session_development
   username: session_development
   password: thepassword
+  port: 54321
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -19,6 +20,7 @@ test:
   database: session_test
   username: session_test
   password: thepassword
+  port: 54321
 
 production:
   <<: *default
@@ -26,3 +28,4 @@ production:
   database: <%= ENV['DB_DATABASE'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
+  port: 5432
